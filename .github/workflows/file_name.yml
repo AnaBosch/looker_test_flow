@@ -1,0 +1,29 @@
+name: filename
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - production
+permissions:
+ contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Copy file
+        run: cp dev_test_file.txt test_file.txt
+      - name: Remove Previous File
+        run: rm dev_test_file.txt
+
+      - name: Push Changes
+        run: |
+          git config --global user.name 'pacomantell'
+          git config --global user.email 'paco.mantell94@gmail.com'
+          git add -A
+          git commit -am "Change filename"
+          git push
