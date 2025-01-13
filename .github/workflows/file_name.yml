@@ -22,8 +22,8 @@ jobs:
 
       - name: Push Changes
         run: |
-          git config --global user.name 'pacomantell'
-          git config --global user.email 'paco.mantell94@gmail.com'
+          git config --global user.name 'AnaBosch'
+          git config --global user.email '⁠anaboschf@gmail.com'
           git add -A
           git commit -am "Change filename"
           git push
